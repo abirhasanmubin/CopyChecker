@@ -1,0 +1,20 @@
+{% extends "home/base.html" %}
+{% block content %}
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.student.profile.image.url }}">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-assignmentdones' object.student.username %}">{{ object.student }}</a>
+            {% if object.student == user %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'assignmentdone-update' object.id %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'assignmentdone-delete' object.id %}">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        <h2 class="article-title">{{ object.assignment.title }}</h2>
+        <h3 class="article-title">{{ object.assignment.subject }}</h3>
+        <p class="article-content">{{ object.content }}</p>
+    </div>
+</article>
+{% endblock content %}

@@ -1,0 +1,136 @@
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+}
+
+ul {
+    margin: 0;
+}
+
+.bg-steel {
+    background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+}
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.article-title {
+    color: #444444;
+}
+
+a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.article-content {
+    white-space: pre-line;
+}
+
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+}
+
+.article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+.account-heading {
+    font-size: 2.5rem;
+}
+
+table.diff {
+    font-size: 16px;
+    border: medium;
+    align: left;
+}
+
+.diff_header {
+    background-color: #e0e0e0
+}
+
+td.diff_header {
+    text-align: right
+}
+
+.diff_next {
+    background-color: #c0c0c0
+}
+
+.diff_add {
+    background-color: #aaffaa
+}
+
+.diff_chg {
+    background-color: #ffff77
+}
+
+.diff_sub {
+    background-color: #ffaaaa
+}
+
+table {
+    border: 3px solid black;
+    border-collapse: separate;
+    width: 60%;
+}
+
+th {
+    height: 40px;
+}
+
+td:hover {
+    background-color: slategray;
+}
+
+thead {
+    background-color: mediumseagreen;
+}
+
+tbody {
+    background-color: rgb(200, 200, 200);
+}
