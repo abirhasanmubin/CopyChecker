@@ -41,7 +41,15 @@ class UserSubjectListView(ListView):
 class SubjectDetailView(DetailView):
     model = Subject
 
+    def get_context_data(self, **kwargs):
+        context = super(SubjectDetailView, self).get_context_data(**kwargs)
+        sub = Subject.objects.filter(pk=self.kwargs.get('pk'))[0]
+        context['assignment_list'] = Assignment.objects.filter(
+            subject=sub).order_by('-date_posted')
+        return context
 
+
+@method_decorator([login_required, teacher_required], name='dispatch')
 class SubjectCreateView(LoginRequiredMixin, CreateView):
     model = Subject
     fields = ['sub_id', 'title']
@@ -103,13 +111,24 @@ class UserAssignmentListView(ListView):
 class AssignmentDetailView(DetailView):
     model = Assignment
 
+    def get_context_data(self, **kwargs):
+        context = super(AssignmentDetailView, self).get_context_data(**kwargs)
+        asi = Assignment.objects.filter(pk=self.kwargs.get('pk'))[0]
+        context['assignmentdone_list'] = AssignmentDone.objects.filter(
+            assignment=asi).order_by('date_uploaded')
+        return context
 
+
+@method_decorator([login_required, teacher_required], name='dispatch')
 class AssignmentCreateView(LoginRequiredMixin, CreateView):
     model = Assignment
-    fields = ['subject', 'title', 'content']
+    fields = ['title', 'content']
 
     def form_valid(self, form):
         form.instance.teacher = self.request.user
+        form.instance.subject = Subject.objects.filter(
+            pk=self.kwargs.get('subpk')).first()
+        pprint(form.instance.subject)
         return super().form_valid(form)
 
     def get_queryset(self):
@@ -119,7 +138,7 @@ class AssignmentCreateView(LoginRequiredMixin, CreateView):
 
 class AssignmentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Assignment
-    fields = ['subject', 'title', 'content']
+    fields = ['title', 'content']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -143,11 +162,13 @@ class AssignmentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
+@login_required
+@teacher_required
 def result(request, **kwargs):
 
-    assignment = Assignment.objects.get(pk=kwargs.get('pk'))
+    asi = Assignment.objects.get(pk=kwargs.get('pk'))
     assignments = AssignmentDone.objects.filter(
-        assignment=assignment).order_by('date_uploaded')
+        assignment=asi).order_by('date_uploaded')
 
     results = []
     for i in assignments:
@@ -162,10 +183,12 @@ def result(request, **kwargs):
                 continue
             m = SequenceMatcher(None, i.content, j.content)
             a = m.ratio() * 100
+            a = round(a, 2)
             if(ma < a):
                 dict['match'] = a
                 dict['matchwith'] = j
         results.append(dict)
+
     context = {
         'results': results
     }
@@ -173,6 +196,8 @@ def result(request, **kwargs):
     return render(request, 'teacher/assignment_result.html', context)
 
 
+@login_required
+@teacher_required
 def result_details(request, **kwargs):
 
     as1 = AssignmentDone.objects.filter(pk=kwargs.get('pk1'))

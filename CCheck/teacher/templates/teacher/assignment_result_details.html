@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -68,9 +68,36 @@
                 </div>
                 {% endfor %}
                 {% endif %}
-                <article class="table ml-4">
-                    {{table|safe}}
-                </article>
+                <small>
+                    <article class="table mb-4">
+                        {{table|safe}}
+                        </br>
+                        </br>
+                        </br>
+                        <table align='left' size='90%'>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Color</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Add</th>
+                                    <th bgcolor='#aaffaa'>Color</th>
+                                </tr>
+                                <tr>
+                                    <th>Delete</th>
+                                    <th bgcolor='#ffaaaa'>Color</th>
+                                </tr>
+                                <tr>
+                                    <th>Change</th>
+                                    <th bgcolor='#ffff77'>Color</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </small>
             </div>
         </div>
     </main>

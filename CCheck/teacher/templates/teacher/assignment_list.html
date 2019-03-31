@@ -6,7 +6,7 @@
     <div class="media-body">
         <div class="article-metadata">
             <a class="mr-2" href="{% url 'user-assignments' assignment.teacher.username %}">{{ assignment.teacher }}</a>
-            <small class="text-muted"><a href="#">{{ assignment.subject }}</a></small>
+            <small class="text-muted"><a href="{% url 'subject-detail' assignment.subject.pk %}">{{ assignment.subject }}</a></small>
             <small class="text-muted">{{ assignment.date_posted|date:"F d, Y" }}</small>
         </div>
         <h2><a class="article-title" href="{% url 'assignment-detail' assignment.id %}">{{ assignment.title }}</a></h2>

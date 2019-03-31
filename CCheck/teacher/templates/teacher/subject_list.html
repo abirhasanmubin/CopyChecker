@@ -1,5 +1,6 @@
 {% extends "home/base.html" %}
 {% block content %}
+<a class="btn btn-outline-info mb-4" href="{% url 'subject-create' %} ">Create Subject</a>
 {% for subject in subjects %}
 <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ subject.teacher.profile.image.url }}">

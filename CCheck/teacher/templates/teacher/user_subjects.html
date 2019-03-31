@@ -1,7 +1,13 @@
 {% extends "home/base.html" %}
 {% block content %}
-<h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+{% if user.is_teacher %}
+<a class="btn btn-outline-info mb-4" href="{% url 'subject-create' %} ">Create Subject</a>
+{% endif %}
 {% for subject in subjects %}
+<div>
+    <h1 class="mb-3">Subjects of {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    <strong><a href="{% url 'subject-create' %}">Create Subject</a></strong>
+</div>
 <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ subject.teacher.profile.image.url }}">
     <div class="media-body">

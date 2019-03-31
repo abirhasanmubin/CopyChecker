@@ -1,6 +1,6 @@
 {% extends "home/base.html" %}
 {% block content %}
-<h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+<h1 class="content">Assignments of {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
 {% for assignment in assignments %}
 <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ assignment.teacher.profile.image.url }}">

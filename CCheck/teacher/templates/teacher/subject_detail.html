@@ -16,5 +16,16 @@
         <p class="article-content">{{ object.title }}</p>
     </div>
 </article>
-<a class="btn btn-outline-info" href="{% url 'assignment-create' %}">Create Assignment</a>
+{% if user.is_teacher %}
+<a class="btn btn-outline-info mb-4" href="{% url 'assignment-create' subpk=object.id %}">Create Assignment</a>
+{% endif %}
+{% for assignment in assignment_list %}
+<article class="media content-section">
+    <div class="media-body">
+        <li>
+            <a class="article-title" href="{% url 'assignment-detail' assignment.pk %}">{{ assignment.title }}</a>
+        </li>
+    </div>
+</article>
+{% endfor %}
 {% endblock content %}

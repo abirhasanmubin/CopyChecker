@@ -12,7 +12,7 @@ from .views import (
 
 
 urlpatterns = [
-    path('assignmentdone/new/', AssignmentDoneCreateView.as_view(),
+    path('<int:as>/assignmentdone/new/', AssignmentDoneCreateView.as_view(),
          name='assignmentdone-create'),
     path('assignmentdone/<int:pk>/', AssignmentDoneDetailView.as_view(),
          name='assignmentdone-detail'),

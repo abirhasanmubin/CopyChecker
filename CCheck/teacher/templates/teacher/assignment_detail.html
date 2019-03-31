@@ -10,6 +10,7 @@
             <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'assignment-update' object.id %}">Update</a>
                 <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'assignment-delete' object.id %}">Delete</a>
+                <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'assignment-result' object.id %}">Result</a>
             </div>
             {% endif %}
         </div>
@@ -17,8 +18,19 @@
         <p class="article-content">{{ object.content }}</p>
     </div>
 </article>
+{% if user.is_teacher %}
+{% for assignment in assignmentdone_list %}
+<article class="media content-section">
+    <div class="media-body">
+        <li>
+            <a class="article-title" href="{% url 'assignmentdone-detail' assignment.pk %}">{{ assignment.student }}</a>
+        </li>
+    </div>
+</article>
+{% endfor %}
+{% else %}
 <div class="media-body">
-    <p class="article-content">Upload your assignments</p>
-    <a href="{% url 'assignmentdone-create'  %}">here</a>
+    <a class="btn btn-outline-info mb-4" href="{% url 'assignmentdone-create' as=object.pk %}">Upload your assignments here</a>
 </div>
+{% endif %}
 {% endblock content %}

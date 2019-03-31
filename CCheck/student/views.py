@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from .decorators import student_required
 from django.contrib.auth.models import User
 from django.views.generic import (
     ListView,
@@ -48,18 +50,13 @@ class AssignmentDoneDetailView(DetailView):
 
 class AssignmentDoneCreateView(LoginRequiredMixin, CreateView):
     model = AssignmentDone
-    fields = ['subject', 'assignment', 'content']
-
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     # user = get_object_or_404(CUser, username=self.kwargs.get('username'))
-    #     self.fields['subject'].queryset = Subject.objects.filter(
-    #         teacher=user).order_by('sub_id')
-    #     self.fields['assignment'].queryset = Assignment.objects.filter(
-    #         teacher=user).filter(subject=form.instance.subject).order_by('-date_posted')
+    fields = ['content']
 
     def form_valid(self, form):
         form.instance.student = self.request.user
+        form.instance.assignment = Assignment.objects.filter(
+            pk=self.kwargs.get('as'))[0]
+        form.instance.subject = form.instance.assignment.subject
         return super().form_valid(form)
 
 

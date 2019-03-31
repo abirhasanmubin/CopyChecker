@@ -30,7 +30,7 @@ urlpatterns = [
     path('subject/<int:pk>/delete/',
          SubjectDeleteView.as_view(), name='subject-delete'),
 
-    path('assignment/new/', AssignmentCreateView.as_view(),
+    path('assignment/<int:subpk>/new/', AssignmentCreateView.as_view(),
          name='assignment-create'),
     path('assignment/<int:pk>/', AssignmentDetailView.as_view(),
          name='assignment-detail'),

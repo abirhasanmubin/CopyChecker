@@ -8,7 +8,7 @@ from teacher.models import Subject, Assignment
 
 class AssignmentDone(models.Model):
     content = models.TextField(default="")
-    student = models.OneToOneField(CUser, on_delete=models.CASCADE)
+    student = models.ForeignKey(CUser, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE)
     date_uploaded = models.DateTimeField(default=timezone.now)
