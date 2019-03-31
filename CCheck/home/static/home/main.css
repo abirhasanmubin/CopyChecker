@@ -134,3 +134,27 @@ thead {
 tbody {
     background-color: rgb(200, 200, 200);
 }
+
+#primaryText a{
+	font-family:Helvetica;
+	font-weight:700;
+	font-size:24px;
+	color:lightseagreen;
+	text-decoration:none;
+}
+#primaryText a:hover{
+	color:teal;
+	text-decoration:underline;
+}
+#secondaryText{
+	font-family:Helvetica;
+	font-weight:600;
+	font-size:24px;
+	color:mediumturquoise;
+}
+#thirdText{
+	font-family:Helvetica;
+	font-weight:600;
+	font-size:22px;
+	color:dodgerblue;
+}

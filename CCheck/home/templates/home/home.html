@@ -1,5 +1,13 @@
 {% extends "home/base.html" %}
 {% block content %}
-<h2 class="article-title">This is the Home page of web app.</h2>
-<h3 class="article-content"></h3>
+<div class="intro mb-4">
+	<b><span id="primaryText"><a href="{% url 'home-about' %}"> CCheck </a></span></b>
+	<span id="secondaryText"> checks the authenticity of an assignment between two assignments offers by
+	the authorized teacher with just a couple of clicks.
+	This assignment plagiarism checker web application works with common text submition.
+	</span><br/><br/><br/><br/>
+	<span id="thirdText"> Legal information and privacy is getting higher priorities here. 
+	Submit your assignment asked by the authorized and will never be shared with unauthorized third parties.
+	</span>
+</div>
 {% endblock content %}
