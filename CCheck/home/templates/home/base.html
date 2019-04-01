@@ -31,6 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'home-home' %}">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'home-about' %}">About</a>
                         {% if user.is_teacher %}
                         <a class="nav-item nav-link" href="{% url 'user-subjects' user.username %}">Subject</a>
                         <a class="nav-item nav-link" href="{% url 'user-assignments' user.username %}">Assignment</a>

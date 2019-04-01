@@ -1,6 +1,6 @@
 # CopyChecker
 
-CopyChecker checks the authenticity of an assignment between two assignments offers to the teacher with just a couple of clicks. This assignment plagiarism checker web application works with common text submission.
+CopyChecker checks the authenticity of an assignment between two assignments offered to the teacher with just a couple of clicks. This assignment plagiarism checker web application works with common text submission.
 
 #### Prerequisites
 Python and MySQL must be installed in machine to run this application.
