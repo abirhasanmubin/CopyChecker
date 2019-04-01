@@ -14,9 +14,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
 
     {% if title %}
-    <title>CCheck - {{ title }}</title>
+    <title>CopyCheker - {{ title }}</title>
     {% else %}
-    <title>CCheck</title>
+    <title>CopyCheker</title>
     {% endif %}
 </head>
 
@@ -24,7 +24,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'home-home' %}">CCheck</a>
+                <a class="navbar-brand mr-4" href="{% url 'home-home' %}">CopyCheker</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -34,7 +34,6 @@
                         {% if user.is_teacher %}
                         <a class="nav-item nav-link" href="{% url 'user-subjects' user.username %}">Subject</a>
                         <a class="nav-item nav-link" href="{% url 'user-assignments' user.username %}">Assignment</a>
-                        <a class="nav-item nav-link" href="#">Result</a>
                         {% else %}
                         <a class="nav-item nav-link" href="{% url 'teacher-subjects' %}">Subject</a>
                         <a class="nav-item nav-link" href="{% url 'teacher-assignments' %}">Assignment</a>

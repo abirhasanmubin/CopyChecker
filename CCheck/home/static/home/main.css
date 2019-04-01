@@ -135,26 +135,37 @@ tbody {
     background-color: rgb(200, 200, 200);
 }
 
-#primaryText a{
-	font-family:Helvetica;
-	font-weight:700;
-	font-size:24px;
-	color:lightseagreen;
-	text-decoration:none;
+#primaryText a {
+    font-family: Helvetica;
+    font-weight: 700;
+    font-size: 24px;
+    color: lightseagreen;
+    text-decoration: none;
 }
-#primaryText a:hover{
-	color:teal;
-	text-decoration:underline;
+
+#primaryText a {
+    font-family: Helvetica;
+    font-weight: 700;
+    font-size: 24px;
+    color: lightseagreen;
+    text-decoration: none;
 }
-#secondaryText{
-	font-family:Helvetica;
-	font-weight:600;
-	font-size:24px;
-	color:mediumturquoise;
+
+#primaryText a:hover {
+    color: teal;
+    text-decoration: underline;
 }
-#thirdText{
-	font-family:Helvetica;
-	font-weight:600;
-	font-size:22px;
-	color:dodgerblue;
+
+#secondaryText {
+    font-family: Helvetica;
+    font-weight: 600;
+    font-size: 24px;
+    color: mediumturquoise;
+}
+
+#thirdText {
+    font-family: Helvetica;
+    font-weight: 600;
+    font-size: 22px;
+    color: dodgerblue;
 }
