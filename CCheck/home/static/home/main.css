@@ -169,3 +169,22 @@ tbody {
     font-size: 22px;
     color: dodgerblue;
 }
+
+/*about page style*/
+.about{
+	box-sizing: border-box;
+	margin: 30px auto;
+	padding-left: 25%;
+	padding-right: 25%;
+}
+.about_header{
+	text-transform: uppercase;
+	color: seagreen;
+	padding-bottom: 5%;
+	padding-top: 5%;
+}
+.about_text{
+	color: seagreen;
+	max-width: 100%;
+	font-size: 20px;
+}
