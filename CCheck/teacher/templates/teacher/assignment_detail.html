@@ -18,7 +18,20 @@
         <p class="article-content">{{ object.content }}</p>
     </div>
 </article>
-{% if user.ias_authenticated %}
+{% if user.is_authenticated %}
+{% for assignment in assignmentdone_list %}
+{% if user == assignment.student %}
+<article class="media content-section">
+    <div class="media-body">
+        <strong>
+            <li>
+                <a class="article-title" href="{% url 'assignmentdone-detail' assignment.pk %}">{{ assignment.student }}</a>
+            </li>
+        </strong>
+    </div>
+</article>
+{% endif %}
+{% endfor %}
 {% if user.is_teacher %}
 {% for assignment in assignmentdone_list %}
 <article class="media content-section">
