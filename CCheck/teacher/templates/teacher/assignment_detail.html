@@ -18,6 +18,7 @@
         <p class="article-content">{{ object.content }}</p>
     </div>
 </article>
+{% if user.ias_authenticated %}
 {% if user.is_teacher %}
 {% for assignment in assignmentdone_list %}
 <article class="media content-section">
@@ -32,5 +33,6 @@
 <div class="media-body">
     <a class="btn btn-outline-info mb-4" href="{% url 'assignmentdone-create' as=object.pk %}">Upload your assignments here</a>
 </div>
+{% endif %}
 {% endif %}
 {% endblock content %}

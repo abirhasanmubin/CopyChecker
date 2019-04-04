@@ -1,6 +1,6 @@
 {% extends "home/base.html" %}
 {% block content %}
-{% if user.is_teacher %}
+{% if user.is_authenticated %}
 <a class="btn btn-outline-info mb-4" href="{% url 'subject-create' %} ">Create Subject</a>
 {% endif %}
 {% for subject in subjects %}

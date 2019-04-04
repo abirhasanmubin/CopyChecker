@@ -9,7 +9,7 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = CUser
-        fields = ['username', 'email', 'is_teacher', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2']
 
 
 class UserUpdateForm(forms.ModelForm):

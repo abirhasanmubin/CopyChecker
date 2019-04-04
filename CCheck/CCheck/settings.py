@@ -146,3 +146,5 @@ EMAIL_HOST_USER = 'abrhsn1998@gmail.com'
 EMAIL_HOST_PASSWORD = 'hyznthodcirspnvk'
 
 AUTH_USER_MODEL = 'users.CUser'
+
+TIME_ZONE = 'Asia/Dhaka'
