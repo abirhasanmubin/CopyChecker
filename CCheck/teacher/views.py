@@ -170,27 +170,36 @@ def result(request, **kwargs):
     assignments = AssignmentDone.objects.filter(
         assignment=asi).order_by('date_uploaded')
 
-    results = []
+    result = []
+
     for i in assignments:
         dict = {
             'assignmentdone': i,
             'match': 0.0,
             'matchwith': None
         }
-        ma = 0.0
-        for j in assignments:
-            if i == j:
-                continue
-            m = SequenceMatcher(None, i.content, j.content)
+        result.append(dict)
+
+    for i in range(len(result)):
+
+        ma = result[i]['match']
+
+        for j in range(i + 1, len(result)):
+
+            m = SequenceMatcher(
+                None, result[i]['assignmentdone'].content, result[j]['assignmentdone'].content)
             a = m.ratio() * 100
             a = round(a, 2)
-            if(ma < a):
-                dict['match'] = a
-                dict['matchwith'] = j
-        results.append(dict)
+
+            if ma < a:
+                ma = a
+                result[i]['match'] = a
+                result[j]['match'] = a
+                result[i]['matchwith'] = result[j]['assignmentdone']
+                result[j]['matchwith'] = result[i]['assignmentdone']
 
     context = {
-        'results': results
+        'results': result
     }
 
     return render(request, 'teacher/assignment_result.html', context)
