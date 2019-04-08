@@ -51,6 +51,8 @@ python manage.py runserver
 * [Django](https://docs.djangoproject.com/en/2.2//) - The web framework used
 * [MySQL](https://www.mysql.com/) - Database
 
+## Algorithm
+* [Diff] (https://neil.fraser.name/writing/diff/) - The diff strategy by Neil Fraser.
 
 ## Authors
 

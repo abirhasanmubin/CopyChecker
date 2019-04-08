@@ -14,9 +14,9 @@ from users.models import CUser
 from .models import Subject, Assignment
 from .decorators import teacher_required
 from student.models import AssignmentDone
+
 from difflib import SequenceMatcher
-import difflib
-from . import difference as dif
+from . import diffMatch as dm
 
 
 class SubjectListView(ListView):
@@ -211,9 +211,15 @@ def result_details(request, **kwargs):
 
     as1 = AssignmentDone.objects.filter(pk=kwargs.get('pk1'))
     as2 = AssignmentDone.objects.filter(pk=kwargs.get('pk2'))
-    m = as1[0].content.splitlines()
-    n = as2[0].content.splitlines()
-    diff = difflib.HtmlDiff(tabsize=4).make_table(m, n)
+    m = as1[0].content
+    n = as2[0].content
+
+    di = dm.diff_match()
+
+    diff = di.diff_main(m, n)
+
+    diff = di.diff_prettyHtml(diff)
+
     context = {
         'table': diff
     }

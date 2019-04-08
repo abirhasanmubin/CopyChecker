@@ -17,7 +17,7 @@
             {% if result.match < 20.0 %}
             <td align='center'>{{result.match}}</td>
             <td align='center'>{{result.matchwith.student}}</td>
-            <td align='center'><a href="/teacher/assignment/{{result.assignmentdone.assignment.pk}}/result/details/{{result.assignmentdone.id}}/{{result.matchwith.id}}/">View</a></td>
+            <td align='center'>-</td>
             {% elif result.match < 55.0 %}
             <td style="color:yellow;font-weight: bold;" align='center'>{{result.match}}</td>
             <td align='center'>{{result.matchwith.student}}</td>
