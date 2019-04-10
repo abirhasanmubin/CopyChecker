@@ -32,11 +32,11 @@ vir_env\Scripts\activate
 ```
 * Then git clone project or download
 ```
-git clone https://github.com/abirhasanmubin/CCheck.git
+git clone https://github.com/abirhasanmubin/CopyChecker.git
 ```
 * Extract it and go to extracted location
 ```
-cd CCheck
+cd CopyChecker
 ```
 * Then install required packages from
 ```
